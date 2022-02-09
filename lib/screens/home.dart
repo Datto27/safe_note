@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:safe_note/db/notes_helper.dart';
-import 'package:safe_note/models/note.dart';
-import 'package:safe_note/navigations/drawer_nav.dart';
+import '../db/notes_helper.dart';
+import '../models/note.dart';
+import '../navigations/drawer_nav.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -18,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // DatabaseHelper.instance.deleteDatabase();
+
     return Scaffold(
       appBar: AppBar(title: Text("Home"),),
       drawer: AppDrawer(),
@@ -27,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // async, await, shemcvleli. daicdis iqamde sanam db-dan info-s miigebs
           future: DatabaseHelper.instance.getNotes(),
           builder: (ctx, snapshot) {
-            print("snapshat ==> ${snapshot.data}");
+            // print("home:snapshat ==> ${snapshot.data}");
             if (!snapshot.hasData) {
               return Center(child: Text("Loading..."),);
             }
@@ -50,6 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       "${snapshot.data![i].description}",
                       maxLines: 1,
                       // style: TextStyle(overflow: TextOverflow.ellipsis,),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete, color: Colors.red,),
+                      onPressed: () async {
+                        DatabaseHelper.instance.removeNote(snapshot.data![i].id!);
+                        setState(() {});
+                      },
                     ),
                     onTap: () {
                       Navigator.of(context).pushNamed("/note-details", arguments: {

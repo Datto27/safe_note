@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:safe_note/db/notes_helper.dart';
-import 'package:safe_note/models/note.dart';
+import '../db/notes_helper.dart';
+import '../models/note.dart';
 
 
 // this screen is used for add or update note
@@ -57,12 +57,12 @@ class _NoteDetailsState extends State<NoteDetails> {
                 onPressed: () async {
                    if (routeArgs['title'] == "Create Note") {
                     print("-------------------- clicked --------------------------");
-                    await DatabaseHelper.instance.add(
+                    await DatabaseHelper.instance.addNote(
                       Note(title: titleController.text, 
                             description: descriptionController.text)
                     );
                   } else {
-                    await DatabaseHelper.instance.update(
+                    await DatabaseHelper.instance.updateNote(
                       Note(
                         id: routeArgs["currNote"].id,
                         title: titleController.text,
@@ -70,7 +70,7 @@ class _NoteDetailsState extends State<NoteDetails> {
                       )
                     );
                   }
-                  Navigator.of(context).pushReplacementNamed("/");
+                  Navigator.of(context).pushReplacementNamed("/home");
                 },
               )
             ],

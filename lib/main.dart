@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:safe_note/screens/home.dart';
-import 'package:safe_note/screens/note_details.dart';
-import 'package:safe_note/screens/person_info.dart';
-import 'package:safe_note/screens/personal_settings.dart';
+import './screens/home.dart';
+import './screens/note_details.dart';
+import './screens/profile_form.dart';
+import './screens/profile_settings.dart';
+import './screens/auth_form.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: AutheticationForm(),
       initialRoute: "/",
       routes: {
+        "/home": (ctx) => HomeScreen(),
         "/note-details": (ctx) => NoteDetails(),
         "/personal-settings": (ctx) => SettingsScreen(),
         "/person-info": (ctx) => PersonalInfoScreen(),

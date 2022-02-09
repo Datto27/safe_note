@@ -3,14 +3,17 @@
 A new Flutter project.
 
 ## Getting Started
+this application is used for save our usefull info,
+used sqflite for save data localy,
+flutter hooks is installed but not used,
+you can add password and username,
 
-This project is a starting point for a Flutter application.
+if user is regeistered and had added password first it need is 
+authenticate, else it will automaticaly move on home page.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+home.dart - page where are all saved notes
+note_details.dart - for edit or create new note
+personal_form.dart - used for add user profile
+personal_settings - controll user its settings and theme
+auth_form.dart - for authenticate user if it exists

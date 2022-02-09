@@ -25,7 +25,7 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.note),
             title: const Text("Your Notes"),
-            onTap: () => Navigator.of(context).pushReplacementNamed("/"),
+            onTap: () => Navigator.of(context).pushReplacementNamed("/home"),
           ),
           const Divider(),
           ListTile(
