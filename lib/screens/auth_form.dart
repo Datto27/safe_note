@@ -17,7 +17,8 @@ class _AutheticationFormState extends State<AutheticationForm> {
     DatabaseHelper.instance.getUser()
       .then((value) {
         // if user not exist move home screen
-        if (userInfo==null) {
+        if (value==null) {
+          // print(value);
           Navigator.of(context).pushReplacementNamed("/home");
         }
         userInfo=value;
