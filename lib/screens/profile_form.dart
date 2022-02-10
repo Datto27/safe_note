@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../db/notes_helper.dart';
+import '../db/db_helper.dart';
 import '../models/user.dart';
 import './profile_settings.dart';
 
@@ -42,7 +42,9 @@ class PersonalInfoScreen extends StatelessWidget {
     print(routeArgs.userInfo);
 
     return Scaffold(
-      appBar: AppBar(title: Text("Profile Register"),),
+      appBar: AppBar(
+        title: Text("Profile Register", style: TextStyle(fontWeight: FontWeight.bold),),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(

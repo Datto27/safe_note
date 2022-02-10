@@ -98,7 +98,7 @@ class DatabaseHelper {
     return await db.insert("user", user.convertJson());
   }
   Future<int> updateUser(User user) async {
-    print("(helper)updated user: ${user.id} ${user.username}");
+    // print("(helper)updated user: ${user.id} ${user.username}");
     Database db = await instance.database;
     return await db.update(
       "user", 

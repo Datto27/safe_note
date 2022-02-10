@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../db/notes_helper.dart';
+import '../db/db_helper.dart';
 import '../models/note.dart';
 import '../navigations/drawer_nav.dart';
 
@@ -21,7 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
     // DatabaseHelper.instance.deleteDatabase();
 
     return Scaffold(
-      appBar: AppBar(title: Text("Home"),),
+      appBar: AppBar(
+        title: Text("Home", style: TextStyle(fontWeight: FontWeight.bold),),
+      ),
       drawer: AppDrawer(),
       body: Padding(
         padding: EdgeInsets.all(20),

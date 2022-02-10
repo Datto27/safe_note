@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../db/notes_helper.dart';
+import 'package:provider/provider.dart';
+import 'package:safe_note/providers/theme.dart';
+import '../db/db_helper.dart';
 import '../models/user.dart';
 import '../navigations/drawer_nav.dart';
 
@@ -27,7 +29,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     super.initState();
     DatabaseHelper.instance.getUser()
     .then((response) {
-      print("response first method: ${response}");
+      // print("response first method: ${response}");
       setState(() {
         userInfo = response;
       });
@@ -53,10 +55,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // userInfo();
+    final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text("Personal Settings"),),
+      appBar: AppBar(
+        title: Text("Personal Settings", style: TextStyle(fontWeight: FontWeight.bold),),
+      ),
       drawer: AppDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -71,10 +75,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   fontWeight: FontWeight.bold
                 ),),
                 Switch(
-                  value: _isdarkMode,
-                  onChanged: (value) => setState(() {
-                    _isdarkMode = value;
-                  }),
+                  value: themeProvider.isDark,
+                  onChanged: (value) => themeProvider.changeTheme(),
                 ),
               ],
             ),
@@ -104,7 +106,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               decoration: BoxDecoration(
-                color: Colors.white,
+                // color: Colors.white,
+                color: themeProvider.isDark ? Colors.grey[900]:Colors.white,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(

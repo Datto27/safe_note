@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../db/notes_helper.dart';
+import '../db/db_helper.dart';
 import '../models/note.dart';
 
 
@@ -27,7 +27,7 @@ class _NoteDetailsState extends State<NoteDetails> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(routeArgs['title']),
+        title: Text(routeArgs['title'], style: TextStyle(fontWeight: FontWeight.bold),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),

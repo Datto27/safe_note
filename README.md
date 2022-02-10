@@ -17,3 +17,13 @@ note_details.dart - for edit or create new note
 personal_form.dart - used for add user profile
 personal_settings - controll user its settings and theme
 auth_form.dart - for authenticate user if it exists
+
+
+used main moduls:
+  sqflite for save data;
+  provider for state managment:
+    setted in main.dart with MultiProvider
+    used in profile_settings 
+
+UI: 
+theme is controlling into providers/theme.dart
