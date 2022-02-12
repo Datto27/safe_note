@@ -1,6 +1,6 @@
 # safe_note
 
-A new Flutter project.
+!!! have a bug during get a theme data, it's come after application build
 
 ## Getting Started
 this application is used for save our usefull info,
@@ -27,3 +27,4 @@ used main moduls:
 
 UI: 
 theme is controlling into providers/theme.dart
+configuration is saved Store key-value data on disk with shared_references

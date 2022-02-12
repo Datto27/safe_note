@@ -18,16 +18,31 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isDarkMode = false;
+
+  @override
   Widget build(BuildContext context) {
+    // application needed rebuild after get theme info from theme_provider
     final themeProvider = Provider.of<ThemeProvider>(context);
+    // // this is code not used
+    // themeProvider.isDarkMode().then((value) {
+    //   isDarkMode = value;
+    //   // print(isDarkMode);
+    // });
+    // // print(themeProvider.isDark);
+    
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Safe Note',
       theme: ThemeData(
         fontFamily: "Josefin",
         brightness: themeProvider.isDark ? Brightness.dark:Brightness.light,  // changes whole theme
