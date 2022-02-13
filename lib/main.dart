@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     // application needed rebuild after get theme info from theme_provider
     final themeProvider = Provider.of<ThemeProvider>(context);
-    // // this is code not used
+    // // this is not used
     // themeProvider.isDarkMode().then((value) {
     //   isDarkMode = value;
     //   // print(isDarkMode);
