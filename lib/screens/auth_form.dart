@@ -33,7 +33,7 @@ class _AutheticationFormState extends State<AutheticationForm> {
         Navigator.of(ctx).pushReplacementNamed("/home");
       } else {
         ScaffoldMessenger.of(ctx).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text("Username or Password is empty"),
             backgroundColor: Colors.red,
           )
@@ -51,31 +51,32 @@ class _AutheticationFormState extends State<AutheticationForm> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
                SizedBox(height: MediaQuery.of(context).size.height*0.2,),
                 // ----------------- title ----------------
-                Text(
+                const Text(
                   "Enter Your Username and Password",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 50,),
+                const SizedBox(height: 50,),
                 // ----------------- form -----------------
                 TextField(
                   controller: usernameController,
-                  decoration: InputDecoration(labelText: "Username"),
+                  decoration: const InputDecoration(labelText: "Username"),
                 ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 TextField(
                   controller: passwordController,
-                  decoration: InputDecoration(labelText: "Password"),
+                  decoration: const InputDecoration(labelText: "Password"),
                   // obscureText: true,
                 ),
-                SizedBox(height: 30,), RaisedButton(
-                  child: Text("Submit"),
-                  padding: EdgeInsets.all(18),
+                const SizedBox(height: 30,), 
+                RaisedButton(
+                  child: const Text("Submit"),
+                  padding: const EdgeInsets.all(18),
                   color: Colors.blueAccent,
                   onPressed: () => authChecker(context),
                 )

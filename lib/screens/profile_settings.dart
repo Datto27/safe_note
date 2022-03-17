@@ -21,7 +21,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool _isdarkMode = false;
+  // bool _isdarkMode = false;
   var userInfo;
 
   @override
@@ -36,7 +36,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     });
   }
   void deleteProfile(ctx) {
-    print("profile deleted");
+    // print("profile deleted");
     // if user exists delete it else show error message
     if (userInfo!=null) {
       DatabaseHelper.instance.deleteUser(userInfo.id);
@@ -45,7 +45,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       });
     } else {
       ScaffoldMessenger.of(ctx).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Profile Doesn't Exist"),
           backgroundColor: Colors.red,
         )
@@ -59,19 +59,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Personal Settings", style: TextStyle(fontWeight: FontWeight.bold),),
+        title: const Text("Personal Settings", style: TextStyle(fontWeight: FontWeight.bold),),
       ),
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(children: <Widget>[
           // ---------------- theme controller -----------------
           Container(
-            margin: EdgeInsets.only(bottom: 10),
+            margin: const EdgeInsets.only(bottom: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Change Theme:", style: TextStyle(
+                const Text("Change Theme:", style: TextStyle(
                   fontWeight: FontWeight.bold
                 ),),
                 Switch(
@@ -88,16 +88,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Icon(Icons.person, size: 80,),
+                  const Icon(Icons.person, size: 80,),
                   Text(
                     "${userInfo!=null ? userInfo?.username : 'Profile Not Created'}",
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   FlatButton.icon(
-                    icon: Icon(Icons.delete, color: Colors.red,),
-                    label: Text(
+                    icon: const Icon(Icons.delete, color: Colors.red,),
+                    label: const Text(
                       "Delete Profile", 
                       style: TextStyle(color: Colors.red),
                     ),
@@ -109,7 +109,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 // color: Colors.white,
                 color: themeProvider.isDark ? Colors.grey[900]:Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black54, 
                     spreadRadius: 3,
@@ -125,7 +125,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: FlatButton(
               child: Text(
                 "${userInfo==null?'Add':'Change'} Your Password and Username", 
-                style: TextStyle(color: Colors.blue),
+                style: const TextStyle(color: Colors.blue),
               ),
               onPressed: () {
                 // check, if user alredy exists and only update its profile

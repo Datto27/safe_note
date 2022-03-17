@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
       home: AutheticationForm(),
       initialRoute: "/",
       routes: {
-        "/home": (ctx) => HomeScreen(),
+        "/home": (ctx) => const HomeScreen(),
         "/note-details": (ctx) => NoteDetails(),
         "/personal-settings": (ctx) => SettingsScreen(),
         "/person-info": (ctx) => PersonalInfoScreen(),

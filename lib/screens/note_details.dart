@@ -37,7 +37,7 @@ class _NoteDetailsState extends State<NoteDetails> {
               const SizedBox(height: 20,),
               TextField(
                 controller: titleController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
                   labelText: "Enter note title",
                 ),
@@ -49,14 +49,14 @@ class _NoteDetailsState extends State<NoteDetails> {
                 textInputAction: TextInputAction.newline,
                 minLines: 1,
                 maxLines: 15,
-                decoration: InputDecoration(labelText: "Description"),
+                decoration: const InputDecoration(labelText: "Description"),
               ),
               const SizedBox(height: 25),
               RaisedButton(
-                child: Text("Save"),
+                child: const Text("Save"),
                 onPressed: () async {
                    if (routeArgs['title'] == "Create Note") {
-                    print("-------------------- clicked --------------------------");
+                    // print("-------------------- clicked --------------------------");
                     await DatabaseHelper.instance.addNote(
                       Note(title: titleController.text, 
                             description: descriptionController.text)

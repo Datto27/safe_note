@@ -39,11 +39,11 @@ class PersonalInfoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // coming from personal_settings for make conditional rendering, update/add user
     final routeArgs = ModalRoute.of(context)!.settings.arguments as PersonalInfoArgs;
-    print(routeArgs.userInfo);
+    // print(routeArgs.userInfo);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile Register", style: TextStyle(fontWeight: FontWeight.bold),),
+        title: const Text("Profile Register", style: TextStyle(fontWeight: FontWeight.bold),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -56,33 +56,33 @@ class PersonalInfoScreen extends StatelessWidget {
               Text(
                 "${routeArgs.option} Your Profile",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 50,),
+              const SizedBox(height: 50,),
               // ----------------- form -----------------
               TextField(
                 controller: usernameController,
-                decoration: InputDecoration(labelText: "Username"),
+                decoration: const InputDecoration(labelText: "Username"),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               TextField(
                 controller: passwordController,
-                decoration: InputDecoration(labelText: "Password"),
+                decoration: const InputDecoration(labelText: "Password"),
                 // obscureText: true,
               ),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               // conditional rendering if args.option=="Add" add new user
               // else update existed user
               routeArgs.option=="Add" 
               ? RaisedButton(
-                child: Text("Add"),
-                padding: EdgeInsets.all(18),
+                child: const Text("Add"),
+                padding: const EdgeInsets.all(18),
                 color: Colors.blueAccent,
                 onPressed: () => saveInfo(context, routeArgs.option),
               )
               : RaisedButton(
-                child: Text("Update"),
-                padding: EdgeInsets.all(18),
+                child: const Text("Update"),
+                padding: const EdgeInsets.all(18),
                 color: Colors.blueAccent,
                 onPressed: () => {}, //saveInfo(context, routeArgs.option, routeArgs.userInfo.id)
               ),
