@@ -56,7 +56,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-
+    // print("isDark: ${themeProvider.isDark}");
     return Scaffold(
       appBar: AppBar(
         title: const Text("Personal Settings", style: TextStyle(fontWeight: FontWeight.bold),),
@@ -85,26 +85,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
           Center(
             child: Container(
               height: 80,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  const Icon(Icons.person, size: 80,),
-                  Text(
-                    "${userInfo!=null ? userInfo?.username : 'Profile Not Created'}",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  FlatButton.icon(
-                    icon: const Icon(Icons.delete, color: Colors.red,),
-                    label: const Text(
-                      "Delete Profile", 
-                      style: TextStyle(color: Colors.red),
-                    ),
-                    onPressed: () => deleteProfile(context),
-                  )
-                ],
-              ),
               decoration: BoxDecoration(
                 // color: Colors.white,
                 color: themeProvider.isDark ? Colors.grey[900]:Colors.white,
@@ -117,6 +97,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     offset: Offset(0, 3), // changes position of shadow
                   )
                 ]
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  const Icon(Icons.person, size: 80),
+                  Flexible(
+                    child: Text(
+                      "${userInfo!=null ? userInfo?.username : 'Profile Not Created'}",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  FlatButton.icon(
+                    icon: const Icon(Icons.delete, color: Colors.red,),
+                    label: const Text(
+                      "Delete", 
+                      style: TextStyle(color: Colors.red),
+                    ),
+                    onPressed: () => deleteProfile(context),
+                  )
+                ],
               ),
             )
           ),

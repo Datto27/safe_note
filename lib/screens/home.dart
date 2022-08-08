@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ? const Center(child: Text("No Notes in List"),)
               : ListView.builder(
                 itemCount: snapshot.data!.length,
-                // ------------- notes list ----------------
+                // ------------------- notes list ------------------
                 itemBuilder: (ctx, i) => Card(
                   child: ListTile(
                     contentPadding: const EdgeInsets.all(10),
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         )
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton( // plus button, down right side
         child: const Icon(Icons.add),
         onPressed: () {
           Navigator.of(context).pushNamed("/note-details", arguments: {

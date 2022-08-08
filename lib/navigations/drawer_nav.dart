@@ -7,16 +7,19 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Drawer(
+      child: Drawer(// drawer content widget
         child: Column(
           children: [
             Container(
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: const Center(
-                child: Text("Hello Here", style: TextStyle(
-                  fontSize: 22, fontWeight: FontWeight.bold,
-                  color: Colors.white
-                ),),
+                child: Text(
+                  "Hello Here", 
+                  style: TextStyle(
+                    fontSize: 22, fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),
+                ),
               ),
               decoration: const BoxDecoration(
                 color: Colors.blue,
@@ -28,9 +31,9 @@ class AppDrawer extends StatelessWidget {
               title: const Text("Your Notes"),
               onTap: () => Navigator.of(context).pushReplacementNamed("/home"),
             ),
-            const Divider(),
+            const Divider(), // line
             ListTile(
-              leading: const Icon(Icons.person),
+              leading: const Icon(Icons.person), // left side of item
               title: const Text("Personal Settings"),
               onTap: () => Navigator.of(context).pushReplacementNamed("/personal-settings"),
             ),

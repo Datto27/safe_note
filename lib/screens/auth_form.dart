@@ -14,7 +14,7 @@ class _AutheticationFormState extends State<AutheticationForm> {
 
   void initState() {
     super.initState();
-    DatabaseHelper.instance.getUser()
+    DatabaseHelper.instance.getUser() // comes from db helper
       .then((value) {
         // if user not exist move home screen
         if (value==null) {
@@ -22,12 +22,22 @@ class _AutheticationFormState extends State<AutheticationForm> {
           Navigator.of(context).pushReplacementNamed("/home");
         }
         userInfo=value;
+      })
+      .catchError((err) {
+        print(err);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("You can't use sqflite on web!"),
+            backgroundColor: Colors.red,
+          )
+        );
+        Navigator.of(context).pushReplacementNamed("/home");
       });
   }
 
   void authChecker(ctx) {
     // get db info if user exists and compare with entered values
-    // print(userInfo!.username);
+    // print(userInfo!.username + "\n \n");
     if (userInfo!=null) {
       if (userInfo.username==usernameController.text && userInfo.password==passwordController.text) {
         Navigator.of(ctx).pushReplacementNamed("/home");
@@ -48,7 +58,7 @@ class _AutheticationFormState extends State<AutheticationForm> {
   Widget build(BuildContext context) {
     // print(userInfo);
 
-    return Scaffold(
+    return Scaffold( 
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20),

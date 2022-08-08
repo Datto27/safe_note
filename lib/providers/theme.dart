@@ -5,9 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ThemeProvider with ChangeNotifier {
   bool _darkTheme = true;
   
-  get isDark {
+  get isDark { // this is method. you can get it as themeProvider.isDark
     isDarkMode().then((value) => _darkTheme=value);
-    // print("theme provider --> ${_darkTheme}");
+    print("theme provider --> ${_darkTheme}");
     return _darkTheme;
   }
   Future<bool> isDarkMode() async {
@@ -21,7 +21,7 @@ class ThemeProvider with ChangeNotifier {
   void changeTheme() async {
     // _darkTheme = !_darkTheme;
     // print("provider: theme --> ${_darkTheme}");
-    // get data from disk and check if isDarkMode exists set _darkTheme=true and add key-value on disk
+    // get data from disk and check if isDarkMode exists, set _darkTheme=true and add key-value on disk
     // else set _darkTheme=false and remove key-value from disk
     final prefs = await SharedPreferences.getInstance();
     final isDarkMode = prefs.getBool("isDarkMode");
@@ -33,6 +33,6 @@ class ThemeProvider with ChangeNotifier {
       _darkTheme = false;
     }
     // print("changed theme: ${prefs.getBool('isDarkMode')}");
-    notifyListeners();
+    notifyListeners(); // for accept state changes
   }
 }

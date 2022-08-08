@@ -10,7 +10,9 @@ import './screens/auth_form.dart';
 void main() {
   runApp(
     MultiProvider(
+      // for use providers in dart you have to use MultiProvider
       providers: [
+        // ThemePrivider comes from providers/theme which is global state
         ChangeNotifierProvider.value(value: ThemeProvider()),
       ],
       child: const MyApp(),
@@ -31,27 +33,20 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // application needed rebuild after get theme info from theme_provider
-    final themeProvider = Provider.of<ThemeProvider>(context);
-    // // this is code not used
-    // themeProvider.isDarkMode().then((value) {
-    //   isDarkMode = value;
-    //   // print(isDarkMode);
-    // });
-    // // print(themeProvider.isDark);
-    
+    final themeProvider = Provider.of<ThemeProvider>(context);    
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Safe Note',
       theme: ThemeData(
-        fontFamily: "Josefin",
-        brightness: themeProvider.isDark ? Brightness.dark:Brightness.light,  // changes whole theme
+        fontFamily: "Josefin",  // this font is saved inside assets folder. also you need to change pubspec.yaml fonts for use this font
+        brightness: themeProvider.isDark ? Brightness.dark : Brightness.light,  // changes whole theme
         primarySwatch: Colors.blue,
         primaryColorDark: Colors.grey[900],
       ),
-      home: AutheticationForm(),
-      initialRoute: "/",
-      routes: {
+      home: AutheticationForm(), // main screen
+      initialRoute: "/", // default route
+      routes: { // routes
         "/home": (ctx) => const HomeScreen(),
         "/note-details": (ctx) => NoteDetails(),
         "/personal-settings": (ctx) => SettingsScreen(),
