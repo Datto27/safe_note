@@ -3,18 +3,16 @@
 !!! have a bug during get a theme data
 
 ## Getting Started
-- this application is used for save our usefull info,
+- this application is used for save useful info,
 - used sqflite for save data localy,
-- flutter hooks is installed but not used,
 - you can add password and username,
 
-- if user is regeistered and had added password first it need is 
-- authenticate, else it will automaticaly move on home page.
+- if user is regeistered and added password first it need is authenticate, else it will automaticaly move to home screen.
 
 
-- home.dart - page where are all saved notes
+- home.dart - page where all saved notes are
 - note_details.dart - for edit or create new note
-- personal_form.dart - used for add user profile
+- personal_form.dart - for add user profile
 - personal_settings - controll user its settings and theme
 - auth_form.dart - for authenticate user if it exists
 
