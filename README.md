@@ -1,6 +1,6 @@
 # safe_note
 
-!!! have a bug during get a theme data, it's come after application build
+!!! have a bug during get a theme data
 
 ## Getting Started
 - this application is used for save our usefull info,
